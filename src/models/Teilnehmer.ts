@@ -1,6 +1,5 @@
 import {model, property, hasMany} from '@loopback/repository';
 import {User} from './User';
-import {Quality} from './Quality';
 import {Request} from './Request';
 
 @model()
@@ -15,11 +14,10 @@ export class User{
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Quality)
-  qualities?: Quality[];
+  @hasMany(() => User)
+  user?: User[];
 
   @hasMany(() => Request)
   participation?: Request[];
-
   }
 }
