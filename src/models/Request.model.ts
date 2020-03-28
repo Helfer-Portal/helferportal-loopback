@@ -1,11 +1,11 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Address} from "./Address";
-import {User} from "./User";
-import {Volunteer} from "./Volunteer";
-import {Quality} from "./Quality";
+import {AddressModel} from "./Address.model";
+import {UserModel} from "./User.model";
+import {VolunteerModel} from "./Volunteer.model";
+import {QualityModel} from "./Quality.model";
 
 @model()
-export class Request extends Entity{
+export class RequestModel extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
@@ -29,10 +29,10 @@ export class Request extends Entity{
   end: number;
 
   @property()
-  coordinator: User;
+  coordinator: UserModel;
 
   @property()
-  address: Address;
+  address: AddressModel;
 
   //*******************************
   //***** STATISTIK
@@ -48,9 +48,9 @@ export class Request extends Entity{
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Quality)
-  qualities?: Quality[];
+  @hasMany(() => QualityModel)
+  qualities?: QualityModel[];
 
-  @hasMany(() => Volunteer)
-  volunteers?: Volunteer[];
+  @hasMany(() => VolunteerModel)
+  volunteers?: VolunteerModel[];
 }

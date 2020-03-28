@@ -2,7 +2,7 @@ import {Entity, model, property} from '@loopback/repository';
 
 
 @model({Settings: {}})
-export class Quality extends Entity{
+export class QualityModel extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a Quality',

@@ -1,10 +1,10 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
-import {Address} from './Address';
-import {Quality} from './Quality';
-import {Volunteer} from './Volunteer';
+import {AddressModel} from './Address.model';
+import {QualityModel} from './Quality.model';
+import {VolunteerModel} from './Volunteer.model';
 
 @model()
-export class User extends Entity{
+export class UserModel extends Entity{
   @property({
     type: 'number',
     id: true,
@@ -77,7 +77,7 @@ export class User extends Entity{
   @property({
     type: 'Address',
   })
-  cart: Address;
+  cart: AddressModel;
 
   //*******************************
   //***** CUSTOMISATION
@@ -92,10 +92,10 @@ export class User extends Entity{
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Quality)
-  qualities?: Quality[];
+  @hasMany(() => QualityModel)
+  qualities?: QualityModel[];
 
-  @hasMany(() => Volunteer)
-  participation?: Volunteer[];
+  @hasMany(() => VolunteerModel)
+  participation?: VolunteerModel[];
 
 }

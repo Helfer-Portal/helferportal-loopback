@@ -1,9 +1,9 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Address} from "./Address";
-import {Project} from "./Project";
+import {AddressModel} from "./Address.model";
+import {ProjectModel} from "./Project.model";
 
 @model()
-export class Organisation extends Entity{
+export class OrganisationModel extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
@@ -30,14 +30,14 @@ export class Organisation extends Entity{
   emailAddress: string;
 
   @property()
-  address: Address;
+  address: AddressModel;
 
   //*******************************
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Project)
-  projects?: Project[];
+  @hasMany(() => ProjectModel)
+  projects?: ProjectModel[];
 
 
 }

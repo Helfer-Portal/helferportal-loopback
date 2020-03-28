@@ -1,9 +1,9 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Address} from "./Address";
-import {Request} from "./Request";
+import {AddressModel} from "./Address.model";
+import {RequestModel} from "./Request.model";
 
 @model()
-export class Project extends Entity{
+export class ProjectModel extends Entity{
   @property({
     type: 'number',
     id: true,
@@ -33,13 +33,13 @@ export class Project extends Entity{
   @property({
     type: 'Address',
   })
-  address: Address;
+  address: AddressModel;
 
   //*******************************
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Request)
-  requests?: Request[];
+  @hasMany(() => RequestModel)
+  requests?: RequestModel[];
 
 }

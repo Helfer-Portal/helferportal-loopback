@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Address extends Entity{
+export class AddressModel extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
