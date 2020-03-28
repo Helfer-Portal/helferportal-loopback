@@ -1,7 +1,7 @@
-import {model, property} from '@loopback/repository';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Address{
+export class Address extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
@@ -33,10 +33,5 @@ export class Address{
 
   //@property()
   //geom: POINT;
-
-  //*******************************
-  //***** ASSOCIATION
-  //*******************************
-
 
 }

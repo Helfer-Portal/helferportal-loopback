@@ -1,11 +1,12 @@
-import {model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Address} from './Address';
 import {Quality} from './Quality';
-import {Request} from './Request';
+import {Volunteer} from './Volunteer';
 
 @model()
-export class User{
+export class User extends Entity{
   @property({
+    type: 'number',
     id: true,
     description: 'The unique identifier for a product',
   })
@@ -39,9 +40,6 @@ export class User{
   //*******************************
 
   @property()
-  email: string;
-
-  @property()
   emailAddress: string;
 
   @property()
@@ -61,7 +59,7 @@ export class User{
   //*******************************
 
   @property()
-  logo: string;
+  avatarPath: string;
 
   //*******************************
   //***** ASSOCIATION
@@ -73,8 +71,7 @@ export class User{
   @hasMany(() => Quality)
   qualities?: Quality[];
 
-  @hasMany(() => Request)
-  participation?: Request[];
+  @hasMany(() => Volunteer)
+  participation?: Volunteer[];
 
-  }
 }

@@ -1,11 +1,9 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Address} from "./Address";
-import {User} from "./User";
-import {Volunteer} from "./Volunteer";
-import {Quality} from "./Quality";
+import {Project} from "./Project";
 
 @model()
-export class Request extends Entity{
+export class Organisation extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
@@ -17,40 +15,29 @@ export class Request extends Entity{
   //*******************************
 
   @property()
-  isActive: boolean;
+  name: string;
 
   @property()
   description: string;
 
   @property()
-  start: number;
+  logoPath: string;
 
   @property()
-  end: number;
+  phone: string;
 
   @property()
-  coordinator: User;
+  emailAddress: string;
 
   @property()
   address: Address;
 
   //*******************************
-  //***** STATISTIK
-  //*******************************
-
-  @property()
-  positiveResponses: number;
-
-  @property()
-  activeHelpers: number;
-
-  //*******************************
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => Quality)
-  qualities?: Quality[];
+  @hasMany(() => Project)
+  projects?: Project[];
 
-  @hasMany(() => Volunteer)
-  volunteers?: Volunteer[];
+
 }
