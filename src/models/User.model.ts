@@ -1,10 +1,10 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {AddressModel} from './Address.model';
-import {QualityModel} from './Quality.model';
-import {VolunteerModel} from './Volunteer.model';
+import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
+import {Address} from './Address.model';
+import {Quality} from './Quality.model';
+import {Volunteer} from './Volunteer.model';
 
 @model()
-export class UserModel extends Entity{
+export class User extends Entity{
   @property({
     type: 'number',
     id: true,
@@ -74,11 +74,8 @@ export class UserModel extends Entity{
   })
   emailProofTokenExpiresAt: number;
 
-  @property({
-    type: 'Address',
-  })
-  cart: AddressModel;
-
+  @hasOne(()=> Address)
+  address?: Address;
   //*******************************
   //***** CUSTOMISATION
   //*******************************
@@ -92,10 +89,14 @@ export class UserModel extends Entity{
   //***** ASSOCIATION
   //*******************************
 
-  @hasMany(() => QualityModel)
-  qualities?: QualityModel[];
+  // @hasMany(() => Quality)
+  // qualities?: Quality[];
 
-  @hasMany(() => VolunteerModel)
-  participation?: VolunteerModel[];
+  // @hasMany(() => Volunteer)
+  // participation?: Volunteer[];
 
+}
+
+export interface UserRelations {
+  // describe navigational properties here
 }

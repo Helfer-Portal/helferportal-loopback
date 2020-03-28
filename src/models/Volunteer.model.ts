@@ -1,19 +1,23 @@
 import {Entity, model, property} from '@loopback/repository';
-import {UserModel} from './User.model';
-import {RequestModel} from './Request.model';
+import {User} from './User.model';
+import {Request} from './Request.model';
 
 //TODO: Bitte richtig auflösen, PrimärKey auf User / Request
 @model()
-export class VolunteerModel extends Entity{
+export class Volunteer extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
   })
-  user: UserModel;
+  user: User;
 
   @property({
     id: true,
     description: 'The unique identifier for a product',
   })
-  request: RequestModel;
+  request: Request;
+}
+
+export interface VolunteerRelations {
+  // describe navigational properties here
 }

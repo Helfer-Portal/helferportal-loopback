@@ -1,7 +1,7 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
 
 @model()
-export class AddressModel extends Entity{
+export class Address extends Entity{
   @property({
     id: true,
     description: 'The unique identifier for a product',
@@ -34,4 +34,8 @@ export class AddressModel extends Entity{
   //@property()
   //geom: POINT;
 
+}
+
+export interface AddressRelations {
+    // user?: UserRelations;
 }
