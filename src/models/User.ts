@@ -16,57 +16,81 @@ export class User extends Entity{
   //***** BASICS
   //*******************************
 
-  @property()
+  @property({
+    type: 'string',
+  })
   name: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   surname: string;
 
   //*******************************
   //***** PASSWORD
   //*******************************
 
-  @property()
+  @property({
+    type: 'string',
+  })
   password: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   passwordResetToken: string;
 
-  @property()
+  @property({
+    type: 'number',
+  })
   passwordResetTokenExpiresAt: number;
 
   //*******************************
   //***** EMAIL
   //*******************************
 
-  @property()
+  @property({
+    type: 'string',
+  })
   emailAddress: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   emailStatus: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   emailChangeCandidate: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   emailProofToken: string;
 
-  @property()
+  @property({
+    type: 'number',
+  })
   emailProofTokenExpiresAt: number;
+
+  @property({
+    type: 'Address',
+  })
+  cart: Address;
 
   //*******************************
   //***** CUSTOMISATION
   //*******************************
 
-  @property()
+  @property({
+    type: 'number',
+  })
   avatarPath: string;
 
   //*******************************
   //***** ASSOCIATION
   //*******************************
-
-  @property()
-  cart: Address;
 
   @hasMany(() => Quality)
   qualities?: Quality[];

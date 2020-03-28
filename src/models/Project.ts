@@ -5,6 +5,7 @@ import {Request} from "./Request";
 @model()
 export class Project extends Entity{
   @property({
+    type: 'number',
     id: true,
     description: 'The unique identifier for a product',
   })
@@ -14,16 +15,24 @@ export class Project extends Entity{
   //***** BASIC
   //*******************************
 
-  @property()
+  @property({
+    type: 'string',
+  })
   name: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   description: string;
 
-  @property()
+  @property({
+    type: 'string',
+  })
   phone: string;
 
-  @property()
+  @property({
+    type: 'Address',
+  })
   address: Address;
 
   //*******************************
