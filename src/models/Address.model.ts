@@ -1,41 +1,51 @@
-import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Address extends Entity{
+export class Address extends Entity {
   @property({
+    type: 'number',
     id: true,
-    description: 'The unique identifier for a product',
+    generated: true,
   })
   id: number;
 
-  //*******************************
-  //***** Address data
-  //*******************************
+  @property({
+    type: 'string',
+  })
+  street?: string;
 
-  @property()
-  street: string;
+  @property({
+    type: 'string',
+  })
+  hn?: string;
 
-  @property()
-  hn: string;
+  @property({
+    type: 'number',
+  })
+  zip?: number;
 
-  @property()
-  zip: number;
+  @property({
+    type: 'number',
+  })
+  city?: number;
 
-  @property()
-  city: string;
+  @property({
+    type: 'number',
+  })
+  country?: number;
 
-  @property()
-  country: number;
+  @property({
+    type: 'number',
+  })
+  organisationId?: number;
 
-  //*******************************
-  //***** POINT
-  //*******************************
-
-  //@property()
-  //geom: POINT;
-
+  constructor(data?: Partial<Address>) {
+    super(data);
+  }
 }
 
 export interface AddressRelations {
-    // user?: UserRelations;
+  // describe navigational properties here
 }
+
+export type AddressWithRelations = Address & AddressRelations;

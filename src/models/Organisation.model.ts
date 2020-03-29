@@ -1,47 +1,46 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Address} from "./Address.model";
-import {Project} from "./Project.model";
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Address} from './address.model';
 
 @model()
-export class Organisation extends Entity{
+export class Organisation extends Entity {
   @property({
+    type: 'number',
     id: true,
-    description: 'The unique identifier for a product',
+    generated: true,
   })
   id: number;
 
-  //*******************************
-  //***** BASIC
-  //*******************************
-
-  @property()
+  @property({
+    type: 'string',
+    required: true,
+  })
   name: string;
 
-  @property()
-  description: string;
+  @property({
+    type: 'string',
+  })
+  description?: string;
 
-  @property()
-  logoPath: string;
+  @property({
+    type: 'string',
+  })
+  phone?: string;
 
-  @property()
-  phone: string;
+  @property({
+    type: 'string',
+  })
+  emailAddress?: string;
 
-  @property()
-  emailAddress: string;
-
-  @property()
+  @hasOne(() => Address)
   address: Address;
 
-  //*******************************
-  //***** ASSOCIATION
-  //*******************************
-
-  // @hasMany(() => Project)
-  // projects?: Project[];
-
-
+  constructor(data?: Partial<Organisation>) {
+    super(data);
+  }
 }
 
 export interface OrganisationRelations {
   // describe navigational properties here
 }
+
+export type OrganisationWithRelations = Organisation & OrganisationRelations;
