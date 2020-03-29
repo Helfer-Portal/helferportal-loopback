@@ -34,6 +34,12 @@ export class Address extends Entity{
   //@property()
   //geom: POINT;
 
+  @property()
+  userId: number;
+
+  constructor(data?: Partial<Address>) {
+    super(data);
+  }
 }
 
 export interface AddressRelations {

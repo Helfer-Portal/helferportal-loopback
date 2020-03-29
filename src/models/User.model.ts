@@ -1,7 +1,7 @@
 import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
 import {Address} from './Address.model';
-import {Quality} from './Quality.model';
-import {Volunteer} from './Volunteer.model';
+// import {Quality} from './Quality.model';
+// import {Volunteer} from './Volunteer.model';
 
 @model()
 export class User extends Entity{
@@ -76,6 +76,7 @@ export class User extends Entity{
 
   @hasOne(()=> Address)
   address?: Address;
+
   //*******************************
   //***** CUSTOMISATION
   //*******************************
