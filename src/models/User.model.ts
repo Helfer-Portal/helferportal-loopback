@@ -1,7 +1,5 @@
-import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
-import {Address} from './Address.model';
-// import {Quality} from './Quality.model';
-// import {Volunteer} from './Volunteer.model';
+import {Entity, model, property} from '@loopback/repository';
+
 
 @model()
 export class User extends Entity{
@@ -74,15 +72,50 @@ export class User extends Entity{
   })
   emailProofTokenExpiresAt: number;
 
-  @hasOne(()=> Address)
-  address?: Address;
+  //*******************************
+  //***** Address data
+  //*******************************
+
+  @property({
+    type: 'string',
+  })
+  street: string;
+
+  @property({
+    type: 'string',
+  })
+  hn: string;
+
+  @property({
+    type: 'number',
+  })
+  zip: number;
+
+  @property({
+    type: 'string',
+  })
+  city: string;
+
+  @property({
+    type: 'string',
+  })
+  country: number;
+
+  //*******************************
+  //***** GEO DATA
+  //*******************************
+
+  // https://apidocs.strongloop.com/loopback-datasource-juggler/#geopoint
+
+  // @property()
+  // geom: GeoPoint;
 
   //*******************************
   //***** CUSTOMISATION
   //*******************************
 
   @property({
-    type: 'number',
+    type: 'string',
   })
   avatarPath: string;
 

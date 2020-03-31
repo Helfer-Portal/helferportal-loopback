@@ -41,6 +41,9 @@ export class PingController {
     },
   })
   ping(): object {
+    const loopback = require('loopback');
+    var here = new loopback.GeoPoint({lat: 10.32424, lng: 5.84978});
+
     // Reply with a greeting, the current time, the url, and request headers
     return {
       greeting: 'Hello from LoopBack',
